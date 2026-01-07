@@ -13,112 +13,91 @@
             background-position: center;
             background-attachment: fixed;
             color: #ffffff;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
             justify-content: center;
-            /* Убрали жесткое центрирование по высоте, чтобы контент не пропадал */
+            align-items: center;
+            min-height: 100vh;
         }
 
         .container {
             background: rgba(10, 10, 10, 0.98);
-            padding: 30px;
-            border-radius: 24px;
+            padding: 40px;
+            border-radius: 28px;
             border: 1px solid #00ff80;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 1);
-            max-width: 440px;
-            width: 100%;
-            margin-top: 40px; /* Отступ сверху, чтобы не прилипало */
+            box-shadow: 0 0 60px rgba(0, 0, 0, 1);
+            max-width: 450px;
+            width: 90%;
+            /* Центрируем всё внутри контейнера */
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            text-align: center;
             box-sizing: border-box;
         }
 
         .header-img {
-            width: 80px;
-            margin-bottom: 10px;
+            width: 90px;
+            height: auto;
+            margin-bottom: 20px;
         }
 
         h1 { 
             color: #00ff80;
-            font-size: 26px; 
-            margin: 10px 0;
+            font-size: 28px; 
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            width: 100%;
         }
 
         .subtitle {
-            color: #888;
-            font-size: 15px;
-            margin-bottom: 25px;
+            color: #bbbbbb;
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.4;
+            width: 100%;
         }
 
-        .btn-box {
-            background: rgba(0, 255, 128, 0.05);
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px dashed #00ff80;
-            margin-bottom: 20px;
+        .btn-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
         }
 
         .btn {
             display: inline-block;
             background: #00ff80;
-            color: #000;
-            padding: 15px 25px;
-            border-radius: 10px;
+            color: #000000;
+            padding: 18px 35px;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 800;
+            cursor: move;
+            transition: all 0.3s ease;
             text-transform: uppercase;
-            font-size: 14px;
-            transition: 0.2s;
+            font-size: 15px;
+            border: none;
+            white-space: nowrap;
         }
 
         .btn:hover {
-            background: #fff;
-            transform: scale(1.03);
+            transform: translateY(-3px);
+            background: #ffffff;
+            box-shadow: 0 10px 20px rgba(0, 255, 128, 0.3);
         }
 
         .instr {
-            text-align: left;
+            color: #eeeeee;
             font-size: 14px;
-            color: #ccc;
-            line-height: 1.5;
-            background: #151515;
-            padding: 15px;
-            border-radius: 12px;
+            line-height: 1.6;
+            text-align: left; /* Текст инструкции лучше оставить слева для списка */
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 16px;
+            border-left: 4px solid #00ff80;
+            width: 100%;
+            box-sizing: border-box;
         }
-
-        kbd {
-            background: #333;
-            padding: 2px 5px;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <img src="https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif" class="header-img">
-        
-        <h1>Abstract Picker</h1>
-        <div class="subtitle">Assistant for Abstract Portal streams</div>
-        
-        <div class="btn-box">
-            <p style="margin-top:0; font-size: 14px;">Drag this button to your bookmarks:</p>
-            <a class="btn" href="javascript:(function(){var scr=document.createElement('script');scr.src='https://raw.githubusercontent.com/nftgoy/abstract-picker/main/picker.js?v='+Math.random();document.body.appendChild(scr);})();">
-                Abstract Chain Picker
-            </a>
-        </div>
-
-        <div class="instr">
-            <b style="color:#00ff80">Quick Setup:</b><br>
-            1. Drag the green button up to your <b>Bookmarks Bar</b>.<br>
-            2. Open any stream on Abstract Portal.<br>
-            3. Click the bookmark to start.
-            <p style="font-size:11px; color:#666; margin-top:10px;">
-                Tip: Press <kbd>Ctrl+Shift+B</kbd> if bar is hidden.
-            </p>
-        </div>
-    </div>
-
-</body>
-</html>
