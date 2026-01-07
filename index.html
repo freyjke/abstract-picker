@@ -3,116 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abstract Chain Picker</title>
+    <title>Abstract Chain Giveaway</title>
     <style>
-        /* Базовый черный фон без градиентов и центрирования скриптом */
         body {
             background-color: #050505;
-            color: #ffffff;
-            font-family: 'Inter', Arial, sans-serif;
+            color: #00ff80;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             margin: 0;
-            padding: 50px 0; /* Отступ сверху, чтобы карточка не липла к краю */
-            text-align: center; /* Центрируем всё содержимое */
+            text-align: center;
         }
 
-        /* Простая карточка с фиксированной шириной и автоматическими отступами по бокам */
         .container {
-            background-color: #0a0a0a;
-            border: 2px solid #00ff80;
-            border-radius: 28px;
-            width: 90%;
+            background: #111;
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid #00ff80;
+            box-shadow: 0 0 40px rgba(0, 255, 128, 0.1);
             max-width: 440px;
-            margin: 0 auto; /* Центрирует сам контейнер */
-            padding: 40px 20px;
-            box-sizing: border-box;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            width: 90%;
         }
 
         .header-img {
-            width: 100px;
-            height: auto;
-            margin-bottom: 20px;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+            object-fit: contain;
         }
 
         h1 { 
-            color: #00ff80;
-            font-size: 28px; 
-            margin: 0 0 10px 0;
-            font-weight: 800;
+            font-size: 26px; 
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
         }
 
         .subtitle {
             color: #888;
             margin-bottom: 30px;
-            font-size: 16px;
+            font-size: 15px;
+            line-height: 1.4;
         }
 
-        .btn-section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 25px 15px;
-            margin-bottom: 30px;
-        }
-
-        /* Кнопка — обычный блочный элемент */
+        /* Обновленная кнопка */
         .btn {
             display: inline-block;
-            background-color: #00ff80;
-            color: #000000;
-            padding: 16px 28px;
-            border-radius: 10px;
+            background: #00ff80;
+            color: #000;
+            padding: 18px 30px;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 800;
+            cursor: move;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(0, 255, 128, 0.2);
             text-transform: uppercase;
-            font-size: 14px;
+            letter-spacing: 0.5px;
+            font-size: 15px;
         }
 
         .btn:hover {
-            background-color: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 255, 128, 0.4);
+            background: #fff;
         }
 
-        /* Инструкция с выравниванием по левому краю внутри */
-        .instr {
-            text-align: left;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #ccc;
-            background: #111;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #00ff80;
+        .hint {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
         }
 
         kbd {
-            background: #333;
-            padding: 2px 4px;
+            background: #222;
+            border: 1px solid #444;
             border-radius: 4px;
+            padding: 2px 5px;
+            color: #aaa;
             font-family: monospace;
+        }
+
+        .instr {
+            color: #ccc;
+            margin-top: 30px;
+            font-size: 13px;
+            line-height: 1.6;
+            text-align: left;
+            background: #0a0a0a;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 3px solid #00ff80;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .footer a {
+            color: #00ff80;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            transition: all 0.2s;
+        }
+
+        .footer a:hover {
+            background: rgba(0, 255, 128, 0.1);
+            border-radius: 6px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif" class="header-img">
+        <img src="https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif" class="header-img" alt="Logo">
         
-        <h1>Abstract Picker</h1>
-        <div class="subtitle">Official Stream Giveaway Assistant</div>
+        <h1>Abstract Chain Picker</h1>
+        <div class="subtitle">Winner selection assistant for Abstract Portal live streams</div>
         
-        <div class="btn-section">
-            <p style="margin-top:0; margin-bottom:15px; font-size:14px;">Drag to your Bookmarks Bar:</p>
-            
-            <a class="btn" href="javascript:(function(){if(document.getElementById('abs-ui')){document.getElementById('abs-ui').remove();}const ui=document.createElement('div');ui.id='abs-ui';ui.style='position:fixed;top:80px;left:20px;z-index:10001;background:#111;color:#00ff80;padding:20px;border:1px solid #00ff80;border-radius:12px;width:280px;box-shadow:0 15px 40px rgba(0,0,0,0.9);font-family:sans-serif;text-align:center;user-select:none;';ui.innerHTML='<div style=%22font-weight:bold;margin-bottom:12px;display:flex;justify-content:space-between;%22><span>Abstract Picker 🎁</span><span id=%22close-abs%22 style=%22cursor:pointer;color:#555;%22>&times;</span></div><input type=%22text%22 id=%22keyword-abs%22 placeholder=%22Keyword...%22 style=%22width:100%;background:#222;border:1px solid #333;color:#00ff80;padding:10px;border-radius:6px;margin-bottom:12px;box-sizing:border-box;outline:none;%22><div id=%22count-abs%22 style=%22font-size:14px;color:#888;margin-bottom:10px;%22>0 PARTICIPANTS</div><button id=%22roll-abs%22 style=%22width:100%;background:#00ff80;border:none;padding:14px;border-radius:8px;font-weight:bold;cursor:pointer;%22>START ROLL</button><div id=%22result-abs%22 style=%22display:none;margin-top:15px;padding:15px;background:rgba(255,50,50,0.1);border:1px dashed #ff3232;border-radius:10px;%22><div id=%22win-user-abs%22 style=%22font-size:18px;font-weight:bold;color:#fff;%22></div></div>';document.body.appendChild(ui);let users=new Map();setInterval(()=>{const kw=document.getElementById('keyword-abs').value.toLowerCase().trim();if(!kw)return;document.querySelectorAll('div[class*=%22ChatMessage%22],div[class*=%22message%22]').forEach(m=>{const t=m.innerText;if(t&&t.toLowerCase().includes(kw)){const lines=t.split('\\n').filter(l=>l.trim().length>0);let name=lines[0];if(name&&!users.has(name)){users.set(name,t);document.getElementById('count-abs').innerText=users.size+' PARTICIPANTS';}}});},1500);document.getElementById('roll-abs').onclick=function(){const keys=Array.from(users.keys());if(keys.length<1)return alert('No users!');const winner=keys[Math.floor(Math.random()*keys.length)];document.getElementById('win-user-abs').innerText=winner;document.getElementById('result-abs').style.display='block';};document.getElementById('close-abs').onclick=()=>ui.remove();})();">
-                ABSTRACT CHAIN PICKER
-            </a>
+        <p style="color: #ccc; font-size: 14px; margin-bottom: 20px;">Drag the button below to your Bookmarks Bar:</p>
+        
+        <a class="btn" href="javascript:(function(){var scr=document.createElement('script');scr.src='https://raw.githubusercontent.com/ТВОЙ_НИК/ТВОЙ_РЕПО/main/picker.js?v='+Math.random();document.body.appendChild(scr);})();">
+            Abstract Chain Picker
+        </a>
+
+        <div class="hint">
+            Don't see the bookmarks bar? Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>
         </div>
 
         <div class="instr">
-            <b>Setup:</b><br>
-            1. Drag the green button to bookmarks.<br>
-            2. Open Abstract Portal stream.<br>
-            3. Click the bookmark to start.
+            <b>Setup Instructions:</b><br>
+            1. Drag the green button above to your bookmarks bar.<br>
+            2. Go to any stream on <b>Abstract Portal</b>.<br>
+            3. Click the saved bookmark to open the tool.<br>
+            4. Set keyword, scan chat, and pick your winners!
         </div>
+    </div>
+
+    <div class="footer">
+        Powered by <a href="https://x.com/nftgoy" target="_blank">@nftgoy</a>
     </div>
 
 </body>
