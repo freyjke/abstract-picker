@@ -1,82 +1,64 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abstract Picker Setup</title>
+    <title>Abstract Chain Picker</title>
     <style>
         body {
-            background: #050505;
+            background: #000;
             color: #fff;
             font-family: 'Inter', -apple-system, sans-serif;
             margin: 0;
-            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
-        .setup-card {
+        .container {
             background: #0a0a0a;
-            padding: 40px 30px;
+            padding: 40px;
             border-radius: 32px;
             border: 1px solid #00ff80;
-            max-width: 480px;
-            width: 100%;
+            max-width: 440px;
+            width: 90%;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 0 60px rgba(0, 0, 0, 1);
         }
-        .logo { width: 80px; margin-bottom: 20px; }
+        .header-img { width: 90px; margin-bottom: 20px; }
+        h1 { color: #00ff80; font-size: 32px; margin: 0 0 10px 0; font-weight: 800; }
+        .subtitle { color: #888; margin-bottom: 35px; font-size: 16px; }
         
-        h1 { color: #00ff80; font-size: 28px; margin-bottom: 10px; }
-        p { color: #888; line-height: 1.5; margin-bottom: 30px; }
-
-        /* Та самая кнопка, которую нужно тянуть */
-        .bookmark-btn {
+        /* The draggable button */
+        .btn-drag {
             display: inline-block;
             background: #00ff80;
             color: #000;
-            padding: 20px 35px;
-            border-radius: 16px;
+            padding: 20px 30px;
+            border-radius: 14px;
             text-decoration: none;
             font-weight: 800;
-            font-size: 16px;
+            font-size: 15px;
             text-transform: uppercase;
-            cursor: move; /* Иконка перетаскивания */
+            cursor: move;
             transition: 0.3s;
-            border: 2px solid #00ff80;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
-        .bookmark-btn:hover {
-            background: transparent;
-            color: #00ff80;
-            box-shadow: 0 0 20px rgba(0, 255, 128, 0.2);
-        }
+        .btn-drag:hover { background: #fff; transform: scale(1.02); }
 
-        .instruction-box {
+        .instr-card {
             text-align: left;
-            background: rgba(255,255,255,0.03);
-            padding: 25px;
-            border-radius: 20px;
-            border: 1px solid #222;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 16px;
+            border-left: 4px solid #00ff80;
         }
-        .step { margin-bottom: 15px; font-size: 14px; color: #ccc; }
+        .step { font-size: 14px; line-height: 1.6; color: #ccc; margin-bottom: 8px; }
         .step b { color: #00ff80; }
-        
-        kbd {
-            background: #333;
-            padding: 2px 5px;
-            border-radius: 4px;
-            font-family: monospace;
-            color: #fff;
-        }
+        kbd { background: #333; padding: 2px 5px; border-radius: 4px; font-family: monospace; }
     </style>
 </head>
 <body>
 
-    <div class="setup-card">
-        <img src="https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif" class="logo">
-        <h1>Abstract Picker</h1>
-        <p>Официальный ассистент для розыгрышей на стримах Abstract Portal. Установка за 5 секунд.</p>
-
-        <a class="bookmark-btn" href="javascript:(function(){if(document.getElementById('abs-ui')){document.getElementById('abs-ui').remove();}const MY_IMAGE_URL='https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif';
+    <div class="container">
+        <img src="https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif" class="header-img">
