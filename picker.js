@@ -19,8 +19,8 @@
             0 <span style="font-size:12px; color:#555; font-weight:normal;">ENTRIES</span>
         </div>
 
-        <div id="penguin-gif-container" style="display:none; text-align:center; margin-bottom:10px;">
-            <img src="https://media.tenor.com/7p6pGf2p09sAAAAd/abster-abstract.gif" style="width:100px; border-radius:10px;">
+        <div id="penguin-gif-container" style="display:none; text-align:center; margin-bottom:15px;">
+            <img src="https://media.tenor.com/7p6pGf2p09sAAAAC/abster-abstract.gif" style="width:150px; height:auto; border-radius:10px; display:inline-block;">
         </div>
 
         <button id="roll-abs" style="width:100%; background:#00ff80; border:none; padding:12px; border-radius:8px; font-weight:bold; cursor:pointer; color: black; transition: 0.2s;">SPIN THE WHEEL</button>
@@ -67,26 +67,30 @@
         const winUser = document.getElementById('win-user');
         const winMsg = document.getElementById('win-msg');
         const status = document.getElementById('roulette-status');
-        const penguin = document.getElementById('penguin-gif-container');
+        const penguinContainer = document.getElementById('penguin-gif-container');
 
-        // Подготовка интерфейса
         btn.disabled = true;
         btn.style.opacity = "0.5";
         btn.innerText = "ROLLING...";
         
-        winDiv.style.display = 'none'; // Скрываем блок победителя на время крутки
-        penguin.style.display = 'block'; // Показываем пингвина
+        // Показываем гифку и блок рулетки одновременно
+        penguinContainer.style.display = 'block';
+        winDiv.style.display = 'block';
+        winMsg.innerText = "";
+        status.innerText = "🎲 SPINNING...";
 
         let counter = 0;
-        const maxTicks = 30; // Увеличил время, чтобы пингвин успел покрутить
+        const maxTicks = 35; // Около 3.5 секунд
         const interval = setInterval(() => {
+            const randomKey = keys[Math.floor(Math.random() * keys.length)];
+            winUser.innerText = randomKey;
+            winUser.style.color = "#fff";
             counter++;
+
             if (counter >= maxTicks) {
                 clearInterval(interval);
                 
-                // Скрываем пингвина и показываем результат
-                penguin.style.display = 'none';
-                winDiv.style.display = 'block';
+                penguinContainer.style.display = 'none'; // Убираем гифку после завершения
 
                 const finalWinner = keys[Math.floor(Math.random() * keys.length)];
                 winUser.innerText = finalWinner;
