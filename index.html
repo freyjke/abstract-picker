@@ -7,87 +7,118 @@
     <style>
         body {
             background-color: #050505;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), 
                               url('https://abs.xyz/imagetransform/width=1024,format=webp/https://abstract-assets.abs.xyz/landing/images/abs-logo-master-dim.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: #ffffff;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start; /* Изменено с center, чтобы контент не улетал вверх */
-            min-height: 100vh; /* Минимальная высота, чтобы фон был на весь экран */
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 40px 0; /* Добавлен отступ сверху и снизу */
-            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            /* Убрали жесткое центрирование по высоте, чтобы контент не пропадал */
         }
 
         .container {
-            background: rgba(10, 10, 10, 0.95);
-            padding: 40px;
-            border-radius: 32px; /* Чуть мягче углы как на скрине */
+            background: rgba(10, 10, 10, 0.98);
+            padding: 30px;
+            border-radius: 24px;
             border: 1px solid #00ff80;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-            max-width: 500px;
-            width: 90%;
-            backdrop-filter: blur(15px);
-            z-index: 10;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 1);
+            max-width: 440px;
+            width: 100%;
+            margin-top: 40px; /* Отступ сверху, чтобы не прилипало */
+            box-sizing: border-box;
         }
 
         .header-img {
-            width: 100px; /* Увеличил размер гифки */
-            height: auto;
-            margin-bottom: 20px;
+            width: 80px;
+            margin-bottom: 10px;
         }
 
         h1 { 
             color: #00ff80;
-            font-size: 32px; 
-            margin-bottom: 15px;
-            font-weight: 800;
+            font-size: 26px; 
+            margin: 10px 0;
         }
 
         .subtitle {
-            color: #bbbbbb;
-            margin-bottom: 35px;
-            font-size: 18px;
+            color: #888;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn-box {
+            background: rgba(0, 255, 128, 0.05);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px dashed #00ff80;
+            margin-bottom: 20px;
         }
 
         .btn {
             display: inline-block;
             background: #00ff80;
-            color: #000000;
-            padding: 20px 40px;
-            border-radius: 14px;
+            color: #000;
+            padding: 15px 25px;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 800;
-            cursor: move;
-            transition: all 0.3s ease;
+            font-weight: bold;
             text-transform: uppercase;
-            font-size: 16px;
-            margin-bottom: 20px;
+            font-size: 14px;
+            transition: 0.2s;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            background: #ffffff;
+            background: #fff;
+            transform: scale(1.03);
         }
 
-        .hint {
+        .instr {
+            text-align: left;
             font-size: 14px;
-            color: #888888;
-            margin-top: 10px;
+            color: #ccc;
+            line-height: 1.5;
+            background: #151515;
+            padding: 15px;
+            border-radius: 12px;
         }
 
         kbd {
             background: #333;
+            padding: 2px 5px;
             border-radius: 4px;
-            padding: 2px 6px;
-            color: #fff;
             font-family: monospace;
         }
+    </style>
+</head>
+<body>
 
-        .instr {
-            color
+    <div class="container">
+        <img src="https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif" class="header-img">
+        
+        <h1>Abstract Picker</h1>
+        <div class="subtitle">Assistant for Abstract Portal streams</div>
+        
+        <div class="btn-box">
+            <p style="margin-top:0; font-size: 14px;">Drag this button to your bookmarks:</p>
+            <a class="btn" href="javascript:(function(){var scr=document.createElement('script');scr.src='https://raw.githubusercontent.com/nftgoy/abstract-picker/main/picker.js?v='+Math.random();document.body.appendChild(scr);})();">
+                Abstract Chain Picker
+            </a>
+        </div>
+
+        <div class="instr">
+            <b style="color:#00ff80">Quick Setup:</b><br>
+            1. Drag the green button up to your <b>Bookmarks Bar</b>.<br>
+            2. Open any stream on Abstract Portal.<br>
+            3. Click the bookmark to start.
+            <p style="font-size:11px; color:#666; margin-top:10px;">
+                Tip: Press <kbd>Ctrl+Shift+B</kbd> if bar is hidden.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
