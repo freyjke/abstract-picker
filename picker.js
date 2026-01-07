@@ -1,10 +1,10 @@
 (function() {
     if (document.getElementById('abs-ui')) {
-        document.getElementById('abs-ui').remove(); // Перезапуск, если уже открыто
+        document.getElementById('abs-ui').remove();
     }
 
-    // СЮДА ВСТАВЬ ССЫЛКУ НА СВОЕ ИЗОБРАЖЕНИЕ (Imgur, Discord и т.д.)
-    const MY_IMAGE_URL = "https://img.icons8.com/color/96/penguin.png"; 
+    // Твоя гифка с Абстером
+    const MY_IMAGE_URL = "https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif"; 
 
     const ui = document.createElement('div');
     ui.id = 'abs-ui';
@@ -25,7 +25,7 @@
         <div id="participants-list" style="display:none; max-height:100px; overflow-y:auto; background:#1a1a1a; padding:10px; margin-bottom:10px; text-align:left; font-size:12px; color:#ccc; border-radius:5px; border: 1px solid #333;"></div>
 
         <div id="penguin-box" style="display:none; margin-bottom:10px;">
-            <img src="${MY_IMAGE_URL}" style="width:80px; height:80px; object-fit:contain; animation: bounce 0.5s infinite alternate;">
+            <img src="${MY_IMAGE_URL}" referrerpolicy="no-referrer" style="width:100px; height:100px; object-fit:contain; border-radius: 8px;">
         </div>
 
         <div id="machine-abs" style="display:none; height:60px; overflow:hidden; background:#000; border:2px solid #00ff80; border-radius:8px; position:relative; margin-bottom:15px; box-shadow: inset 0 0 10px #00ff80;">
@@ -42,12 +42,11 @@
         </div>
 
         <button id="clear-abs" style="width:100%; background:transparent; border:none; color:#444; margin-top:12px; cursor:pointer; font-size:10px;">RESET EVERYTHING</button>
-
-        <style>@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-8px); } }</style>
     `;
     document.body.appendChild(ui);
 
     let users = new Map();
+    let removedUsers = new Set(); 
 
     const updateUIInfo = () => {
         document.getElementById('count-abs').innerText = `${users.size} PARTICIPANTS`;
@@ -63,7 +62,8 @@
             if (t && t.toLowerCase().includes(kw)) {
                 const lines = t.split('\n').map(l => l.trim()).filter(l => l.length > 2);
                 let name = lines.find(l => l.startsWith('@') || (!l.includes(':') && !l.includes('Сегодня') && !l.includes('Вчера') && !l.includes('Непрочитанные'))) || lines[0];
-                if (name && !users.has(name)) {
+                
+                if (name && !users.has(name) && !removedUsers.has(name)) {
                     users.set(name, t);
                     updateUIInfo();
                 }
@@ -116,12 +116,17 @@
             penguin.style.display = 'none';
             result.style.display = 'block';
             document.getElementById('win-user-abs').innerText = winner;
-            users.delete(winner); // Удаляем победителя
+            
+            users.delete(winner); 
+            removedUsers.add(winner); 
+            
             updateUIInfo();
             this.disabled = false;
         }, 3700);
     };
 
     document.getElementById('close-abs').onclick = () => ui.remove();
-    document.getElementById('clear-abs').onclick = () => { users.clear(); updateUIInfo(); };
+    document.getElementById('clear-abs').onclick = () => { 
+        if(confirm("Clear all?")) { users.clear(); removedUsers.clear(); updateUIInfo(); }
+    };
 })();
