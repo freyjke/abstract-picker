@@ -7,6 +7,7 @@
     <style>
         body {
             background-color: #050505;
+            /* Усиленное затемнение фона для идеальной читаемости */
             background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
                               url('https://abs.xyz/imagetransform/width=1024,format=webp/https://abstract-assets.abs.xyz/landing/images/abs-logo-master-dim.png');
             background-size: cover;
@@ -18,13 +19,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             text-align: center;
         }
 
         .container {
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(15, 15, 15, 0.95);
             padding: 40px;
             border-radius: 24px;
             border: 1px solid #00ff80;
@@ -32,12 +33,13 @@
             max-width: 440px;
             width: 90%;
             backdrop-filter: blur(15px);
-            z-index: 10;
+            position: relative;
+            z-index: 2;
         }
 
         .header-img {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             margin-bottom: 15px;
             object-fit: contain;
         }
@@ -45,39 +47,5 @@
         h1 { 
             color: #00ff80;
             font-size: 28px; 
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-            line-height: 1.2;
-        }
-
-        .subtitle {
-            color: #bbbbbb;
-            margin-bottom: 30px;
-            font-size: 16px;
-            font-weight: 400;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #00ff80;
-            color: #000000;
-            padding: 18px 30px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 800;
-            cursor: move;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0, 255, 128, 0.2);
-            text-transform: uppercase;
-            font-size: 15px;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 255, 128, 0.4);
-            background: #ffffff;
-        }
-
-        .hint {
-            margin-top: 15px;
-            font-size:
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5
