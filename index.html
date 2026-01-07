@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abstract Chain Giveaway</title>
     <style>
+        /* Базовые настройки без жестких ограничений высоты */
         body {
             background-color: #050505;
             background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), 
@@ -15,33 +16,28 @@
             color: #ffffff;
             font-family: 'Inter', -apple-system, sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 40px 20px; /* Отступы, чтобы контент не прилипал */
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
         }
 
         .container {
-            background: rgba(10, 10, 10, 0.98);
-            padding: 40px;
-            border-radius: 28px;
+            background: #0a0a0a;
+            padding: 40px 30px;
+            border-radius: 24px;
             border: 1px solid #00ff80;
-            box-shadow: 0 0 60px rgba(0, 0, 0, 1);
-            max-width: 450px;
-            width: 90%;
-            /* Центрируем всё внутри контейнера */
-            display: flex;
-            flex-direction: column;
-            align-items: center; 
-            text-align: center;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 1);
+            max-width: 440px;
+            width: 100%;
+            text-align: center; /* Центрирует текст, картинки и инлайновые кнопки */
             box-sizing: border-box;
         }
 
         .header-img {
-            width: 90px;
+            width: 80px;
             height: auto;
-            margin-bottom: 20px;
+            margin: 0 auto 20px auto;
+            display: block; /* Гарантирует центровку картинки */
         }
 
         h1 { 
@@ -49,55 +45,75 @@
             font-size: 28px; 
             margin: 0 0 10px 0;
             font-weight: 800;
-            width: 100%;
         }
 
         .subtitle {
-            color: #bbbbbb;
+            color: #888;
             margin-bottom: 30px;
             font-size: 16px;
-            line-height: 1.4;
-            width: 100%;
         }
 
-        .btn-wrapper {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 25px;
+        .btn-section {
+            padding: 25px;
+            background: rgba(0, 255, 128, 0.03);
+            border: 1px dashed rgba(0, 255, 128, 0.3);
+            border-radius: 16px;
+            margin-bottom: 30px;
         }
 
         .btn {
             display: inline-block;
             background: #00ff80;
             color: #000000;
-            padding: 18px 35px;
-            border-radius: 12px;
+            padding: 16px 30px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 800;
-            cursor: move;
-            transition: all 0.3s ease;
             text-transform: uppercase;
-            font-size: 15px;
-            border: none;
-            white-space: nowrap;
+            font-size: 14px;
+            transition: 0.3s;
+            cursor: move;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
             background: #ffffff;
-            box-shadow: 0 10px 20px rgba(0, 255, 128, 0.3);
+            transform: scale(1.02);
         }
 
         .instr {
-            color: #eeeeee;
+            text-align: left;
             font-size: 14px;
             line-height: 1.6;
-            text-align: left; /* Текст инструкции лучше оставить слева для списка */
-            background: rgba(255, 255, 255, 0.03);
+            color: #ccc;
+            background: #111;
             padding: 20px;
-            border-radius: 16px;
-            border-left: 4px solid #00ff80;
-            width: 100%;
-            box-sizing: border-box;
+            border-radius: 12px;
+            border-left: 3px solid #00ff80;
         }
+
+        kbd {
+            background: #222;
+            padding: 2px 4px;
+            border-radius: 4px;
+            color: #00ff80;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif" class="header-img">
+        
+        <h1>Abstract Picker</h1>
+        <div class="subtitle">Official Stream Giveaway Assistant</div>
+        
+        <div class="btn-section">
+            <p style="margin-top: 0; font-size: 14px; color: #eee;">Drag this button to your bookmarks:</p>
+            
+            <a class="btn" href="javascript:(function(){if(document.getElementById('abs-ui')){document.getElementById('abs-ui').remove();}const MY_IMAGE_URL='https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif';const ui=document.createElement('div');ui.id='abs-ui';ui.style='position:fixed;top:80px;left:20px;z-index:10001;background:#111;color:#00ff80;padding:20px;border:1px solid #00ff80;border-radius:12px;width:280px;box-shadow:0 15px 40px rgba(0,0,0,0.9);font-family:sans-serif;text-align:center;user-select:none;';ui.innerHTML='<div id=%22abs-header%22 style=%22font-weight:bold;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;cursor:move;padding:5px;background:rgba(0,255,128,0.05);border-radius:6px;%22><span>Abstract Giveaway 🎁</span><span id=%22close-abs%22 style=%22cursor:pointer;color:#555;font-size:22px;%22>&times;</span></div><input type=%22text%22 id=%22keyword-abs%22 placeholder=%22Keyword (e.g. gm)%22 style=%22width:100%;background:#222;border:1px solid #333;color:#00ff80;padding:10px;border-radius:6px;margin-bottom:12px;box-sizing:border-box;outline:none;%22><div id=%22count-abs%22 style=%22font-size:14px;color:#888;margin-bottom:10px;%22>0 PARTICIPANTS</div><button id=%22roll-abs%22 style=%22width:100%;background:#00ff80;border:none;padding:14px;border-radius:8px;font-weight:bold;cursor:pointer;color:#000;font-size:14px;%22>Start Draw!</button><div id=%22result-abs%22 style=%22display:none;margin-top:15px;padding:15px;background:rgba(255,50,50,0.1);border:1px dashed #ff3232;border-radius:10px;%22><div id=%22win-user-abs%22 style=%22font-size:20px;font-weight:bold;color:#fff;%22></div></div>';document.body.appendChild(ui);let users=new Map();setInterval(()=>{const kw=document.getElementById('keyword-abs').value.toLowerCase().trim();if(!kw)return;document.querySelectorAll('div[class*=%22ChatMessage%22],div[class*=%22message%22]').forEach(m=>{const t=m.innerText;if(t&&t.toLowerCase().includes(kw)){const lines=t.split('\\n').filter(l=>l.trim().length>0);let name=lines[0];if(name&&!users.has(name)){users.set(name,t);document.getElementById('count-abs').innerText=users.size+' PARTICIPANTS';}}});},1500);document.getElementById('roll-abs').onclick=function(){const keys=Array.from(users.keys());if(keys.length<1)return alert('No users found!');const winner=keys[Math.floor(Math.random()*keys.length)];document.getElementById('win-user-abs').innerText=winner;document.getElementById('result-abs').style.display='block';};document.getElementById('close-abs').onclick=()=>ui.remove();})();">
+                Abstract Chain Picker
+            </a>
+        </div>
+
+        <div
