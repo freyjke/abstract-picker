@@ -7,13 +7,13 @@
     <style>
         body {
             background-color: #050505;
-            /* Добавляем фоновую картинку */
-            background-image: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.8)), 
+            /* Усилили затемнение: 0.85 делает фон достаточно темным для чтения текста */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
                               url('https://abs.xyz/imagetransform/width=1024,format=webp/https://abstract-assets.abs.xyz/landing/images/abs-logo-master-dim.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: #00ff80;
+            color: #ffffff; /* Основной текст теперь чисто белый для контраста */
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             display: flex;
             flex-direction: column;
@@ -25,91 +25,93 @@
         }
 
         .container {
-            background: rgba(17, 17, 17, 0.9); /* Сделали фон чуть прозрачным, чтобы видеть задник */
+            background: rgba(10, 10, 10, 0.95); /* Почти непрозрачный фон для надежности */
             padding: 40px;
             border-radius: 24px;
             border: 1px solid #00ff80;
-            box-shadow: 0 0 40px rgba(0, 255, 128, 0.2);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 20px rgba(0, 255, 128, 0.2);
             max-width: 440px;
             width: 90%;
-            backdrop-filter: blur(10px); /* Эффект размытия стекла */
+            backdrop-filter: blur(15px);
+            z-index: 10;
         }
 
         .header-img {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             margin-bottom: 15px;
             object-fit: contain;
         }
 
         h1 { 
-            font-size: 26px; 
+            color: #00ff80; /* Заголовок ярко-зеленый */
+            font-size: 28px; 
             margin-bottom: 10px;
             letter-spacing: -0.5px;
             line-height: 1.2;
         }
 
         .subtitle {
-            color: #888;
+            color: #bbbbbb; /* Светло-серый подзаголовок */
             margin-bottom: 30px;
-            font-size: 15px;
-            line-height: 1.4;
+            font-size: 16px;
+            font-weight: 400;
         }
 
         .btn {
             display: inline-block;
             background: #00ff80;
-            color: #000;
+            color: #000000;
             padding: 18px 30px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 800;
             cursor: move;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
             box-shadow: 0 10px 20px rgba(0, 255, 128, 0.2);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
             font-size: 15px;
         }
 
         .btn:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 15px 30px rgba(0, 255, 128, 0.4);
-            background: #fff;
+            background: #ffffff;
         }
 
         .hint {
             margin-top: 15px;
-            font-size: 12px;
-            color: #666;
-            font-style: italic;
+            font-size: 13px;
+            color: #888888;
         }
 
         kbd {
-            background: #222;
-            border: 1px solid #444;
+            background: #333;
+            border: 1px solid #555;
             border-radius: 4px;
-            padding: 2px 5px;
-            color: #aaa;
+            padding: 2px 6px;
+            color: #fff;
             font-family: monospace;
+            font-weight: bold;
         }
 
         .instr {
-            color: #ccc;
+            color: #eeeeee;
             margin-top: 30px;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.6;
             text-align: left;
-            background: rgba(10, 10, 10, 0.8);
+            background: rgba(0, 0, 0, 0.6);
             padding: 20px;
-            border-radius: 10px;
-            border-left: 3px solid #00ff80;
+            border-radius: 12px;
+            border-left: 4px solid #00ff80;
         }
 
         .footer {
             margin-top: 50px;
-            font-size: 14px;
-            color: #666;
+            font-size: 15px;
+            color: #888888;
+            z-index: 10;
         }
 
         .footer a {
@@ -117,4 +119,38 @@
             text-decoration: none;
             font-weight: 600;
             padding: 5px 10px;
-            transition: all
+            transition: all 0.2s;
+        }
+
+        .footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif" class="header-img" alt="Logo">
+        
+        <h1>Abstract Chain Picker</h1>
+        <div class="subtitle">Winner selection assistant for Abstract Portal live streams</div>
+        
+        <p style="color: #ffffff; font-size: 15px; margin-bottom: 20px; font-weight: 500;">Drag the button below to your Bookmarks Bar:</p>
+        
+        <a class="btn" href="javascript:(function(){var scr=document.createElement('script');scr.src='https://raw.githubusercontent.com/ТВОЙ_НИК/ТВОЙ_РЕПО/main/picker.js?v='+Math.random();document.body.appendChild(scr);})();">
+            Abstract Chain Picker
+        </a>
+
+        <div class="hint">
+            Don't see the bookmarks bar? Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>
+        </div>
+
+        <div class="instr">
+            <b style="color: #00ff80;">Setup Instructions:</b><br>
+            1. Drag the green button above to your bookmarks bar.<br>
+            2. Go to any stream on <b>Abstract Portal</b>.<br>
+            3. Click the saved bookmark to open the tool.<br>
+            4. Set keyword, scan chat, and pick your winners!
+        </div>
+    </div>
