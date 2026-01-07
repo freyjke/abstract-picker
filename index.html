@@ -17,124 +17,77 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
+            justify-content: flex-start; /* Изменено с center, чтобы контент не улетал вверх */
+            min-height: 100vh; /* Минимальная высота, чтобы фон был на весь экран */
             margin: 0;
+            padding: 40px 0; /* Добавлен отступ сверху и снизу */
             text-align: center;
         }
 
         .container {
             background: rgba(10, 10, 10, 0.95);
             padding: 40px;
-            border-radius: 24px;
+            border-radius: 32px; /* Чуть мягче углы как на скрине */
             border: 1px solid #00ff80;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 20px rgba(0, 255, 128, 0.2);
-            max-width: 440px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            max-width: 500px;
             width: 90%;
             backdrop-filter: blur(15px);
             z-index: 10;
         }
 
         .header-img {
-            width: 70px;
-            height: 70px;
-            margin-bottom: 15px;
-            object-fit: contain;
+            width: 100px; /* Увеличил размер гифки */
+            height: auto;
+            margin-bottom: 20px;
         }
 
         h1 { 
             color: #00ff80;
-            font-size: 28px; 
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-            line-height: 1.2;
+            font-size: 32px; 
+            margin-bottom: 15px;
+            font-weight: 800;
         }
 
         .subtitle {
             color: #bbbbbb;
-            margin-bottom: 30px;
-            font-size: 16px;
-            font-weight: 400;
+            margin-bottom: 35px;
+            font-size: 18px;
         }
 
         .btn {
             display: inline-block;
             background: #00ff80;
             color: #000000;
-            padding: 18px 30px;
-            border-radius: 12px;
+            padding: 20px 40px;
+            border-radius: 14px;
             text-decoration: none;
             font-weight: 800;
             cursor: move;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0, 255, 128, 0.2);
             text-transform: uppercase;
-            font-size: 15px;
+            font-size: 16px;
+            margin-bottom: 20px;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 255, 128, 0.4);
             background: #ffffff;
         }
 
         .hint {
-            margin-top: 15px;
-            font-size: 13px;
+            font-size: 14px;
             color: #888888;
+            margin-top: 10px;
         }
 
         kbd {
             background: #333;
-            border: 1px solid #555;
             border-radius: 4px;
             padding: 2px 6px;
             color: #fff;
             font-family: monospace;
-            font-weight: bold;
         }
 
         .instr {
-            color: #eeeeee;
-            margin-top: 30px;
-            font-size: 14px;
-            line-height: 1.6;
-            text-align: left;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #00ff80;
-        }
-
-        .footer {
-            margin-top: 50px;
-            font-size: 15px;
-            color: #888888;
-            z-index: 10;
-        }
-
-        .footer a {
-            color: #00ff80;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 5px 10px;
-            transition: all 0.2s;
-        }
-
-        .footer a:hover {
-            color: #ffffff;
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <img src="https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif" class="header-img" alt="Logo">
-        
-        <h1>Abstract Chain Picker</h1>
-        <div class="subtitle">Winner selection assistant for Abstract Portal live streams</div>
-        
-        <p style="color: #ffffff; font-size: 15px; margin-bottom: 20px; font-weight: 500;">Drag the button below to your Bookmarks Bar:</p>
-        
-        <a class="btn" href="javascript:(function(){var scr=document.createElement('script');scr.src='
+            color
