@@ -41,6 +41,10 @@
             <div id="win-user-abs" style="font-size:20px; font-weight:bold; color:#fff; margin-top:5px; word-break:break-all;"></div>
         </div>
 
+        <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #222;">
+            <a href="https://x.com/nftgoy" target="_blank" style="color: #00ff80; text-decoration: none; font-size: 11px; font-weight: bold;">Powered by @nftgoy</a>
+        </div>
+
         <button id="clear-abs" style="width:100%; background:transparent; border:none; color:#444; margin-top:12px; cursor:pointer; font-size:10px;">RESET EVERYTHING</button>
     `;
     document.body.appendChild(ui);
