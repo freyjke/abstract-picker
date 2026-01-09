@@ -3,6 +3,7 @@
         document.getElementById('abs-ui').remove();
     }
 
+    // Твоя гифка с Абстером
     const MY_IMAGE_URL = "https://media.tenor.com/ktj6Jw_vkc4AAAAi/abster-abstract.gif"; 
 
     const ui = document.createElement('div');
@@ -40,22 +41,19 @@
             <div id="win-user-abs" style="font-size:20px; font-weight:bold; color:#fff; margin-top:5px; word-break:break-all;"></div>
         </div>
 
-        <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #222;">
-            <a href="https://x.com/nftgoy" target="_blank" style="color: #00ff80; text-decoration: none; font-size: 11px; font-weight: bold; opacity: 0.8;">Powered by @nftgoy</a>
-        </div>
-
-        <button id="clear-abs" style="width:100%; background:transparent; border:none; color:#444; margin-top:10px; cursor:pointer; font-size:10px;">RESET EVERYTHING</button>
+        <button id="clear-abs" style="width:100%; background:transparent; border:none; color:#444; margin-top:12px; cursor:pointer; font-size:10px;">RESET EVERYTHING</button>
     `;
     document.body.appendChild(ui);
 
-    /* ... (остальная логика Map, Scan и Roll остается без изменений) ... */
     let users = new Map();
     let removedUsers = new Set(); 
+
     const updateUIInfo = () => {
         document.getElementById('count-abs').innerText = `${users.size} PARTICIPANTS`;
         const listDiv = document.getElementById('participants-list');
         listDiv.innerHTML = Array.from(users.keys()).map(u => `<div style="padding:2px 0; border-bottom:1px solid #222;">• ${u}</div>`).join('');
     };
+
     const scan = () => {
         const kw = document.getElementById('keyword-abs').value.toLowerCase().trim();
         if (!kw) return;
@@ -63,7 +61,8 @@
             const t = m.innerText;
             if (t && t.toLowerCase().includes(kw)) {
                 const lines = t.split('\n').map(l => l.trim()).filter(l => l.length > 2);
-                let name = lines.find(l => l.startsWith('@') || (!l.includes(':') && !l.includes('Сегодня'))) || lines[0];
+                let name = lines.find(l => l.startsWith('@') || (!l.includes(':') && !l.includes('Сегодня') && !l.includes('Вчера') && !l.includes('Непрочитанные'))) || lines[0];
+                
                 if (name && !users.has(name) && !removedUsers.has(name)) {
                     users.set(name, t);
                     updateUIInfo();
@@ -72,48 +71,60 @@
         });
     };
     setInterval(scan, 1500);
+
     document.getElementById('view-list-btn').onclick = () => {
         const list = document.getElementById('participants-list');
         list.style.display = list.style.display === 'block' ? 'none' : 'block';
     };
+
     document.getElementById('roll-abs').onclick = function() {
         const keys = Array.from(users.keys());
         if (keys.length < 1) return alert("List is empty!");
+
         const strip = document.getElementById('strip-abs');
         const machine = document.getElementById('machine-abs');
         const penguin = document.getElementById('penguin-box');
         const result = document.getElementById('result-abs');
+        
         strip.innerHTML = '';
         strip.style.transition = 'none';
         strip.style.transform = 'translateY(0)';
+        
         const rollList = [];
         for(let i=0; i<40; i++) rollList.push(keys[Math.floor(Math.random() * keys.length)]);
         const winner = keys[Math.floor(Math.random() * keys.length)];
         rollList.push(winner);
+
         rollList.forEach(name => {
             const el = document.createElement('div');
             el.style = "height:60px; line-height:60px; text-align:center; color:#fff; font-weight:bold; font-size:16px;";
             el.innerText = name;
             strip.appendChild(el);
         });
+
         this.disabled = true;
         machine.style.display = 'block';
         penguin.style.display = 'block';
         result.style.display = 'none';
+
         setTimeout(() => {
             strip.style.transition = 'transform 3.5s cubic-bezier(0.1, 0, 0.1, 1)';
             strip.style.transform = `translateY(-${(rollList.length - 1) * 60}px)`;
         }, 100);
+
         setTimeout(() => {
             penguin.style.display = 'none';
             result.style.display = 'block';
             document.getElementById('win-user-abs').innerText = winner;
+            
             users.delete(winner); 
             removedUsers.add(winner); 
+            
             updateUIInfo();
             this.disabled = false;
         }, 3700);
     };
+
     document.getElementById('close-abs').onclick = () => ui.remove();
     document.getElementById('clear-abs').onclick = () => { 
         if(confirm("Clear all?")) { users.clear(); removedUsers.clear(); updateUIInfo(); }
